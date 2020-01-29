@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 19f0959db47a48c4a94e877dc55ebf30
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - goldKey: {fileID: 431157001610997155, guid: 1ef264052cd2c8f408fc59781104774c,
+      type: 3}
+  - ironKey: {fileID: 5509093839077630051, guid: 81a0c0d998ef0be4c89c23e569f88c04,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
