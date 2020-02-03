@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 646363429133809313}
   - component: {fileID: -3368389541311641054}
   m_Layer: 0
-  m_Name: Bullet_45mm_Full
-  m_TagString: Untagged
+  m_Name: bullet
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,8 @@ MonoBehaviour:
   rotateX: 0
   rotateY: 0
   rotateZ: 0
+  xSpeed: 0
+  ySpeed: 0
   testBool: 0
 --- !u!1 &593487397132226051
 GameObject:

@@ -15,7 +15,8 @@ public class ShootyBoi : MonoBehaviour
     public float timer = .5f;
     public bool turning;
     public Rigidbody rbody;
-    
+    public float xSpeed;
+    public float ySpeed;
     
     // Start is called before the first frame update
     void Start()
@@ -27,33 +28,23 @@ public class ShootyBoi : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x);
+       
 
-        if (Input.GetKey(right))
-        {
-            turning = true;
-        }
-
-        if (Input.GetKey(left))
-        {
-            turning = false;
-        }
-
-
-        if (Input.GetKeyDown(space) && timer <= 0 && turning == true)
+        if (Input.GetKeyDown(space) && timer <= 0 && Mathf.Abs(Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg) <= 90)
         {
             Instantiate(bullet, new Vector3(this.transform.position.x+2, this.transform.position.y+1, this.transform.position.z), gun1.transform.rotation);
-            rbody.velocity = new Vector3(-15, 0, 0);
-
+           
             if (timer <= 0)
             {
                 timer = .25f;
             }
         }
-
-        if (Input.GetKeyDown(space) && timer <= 0 && turning == false)
+        else if (Input.GetKeyDown(space) && timer <= 0 && Mathf.Abs(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) >= 90)
         {
-            Instantiate(bullet, new Vector3(this.transform.position.x - 2, this.transform.position.y + 1, this.transform.position.z), gun2.transform.rotation);
-            rbody.velocity = new Vector3(-15, 0, 0);
+            Instantiate(bullet, new Vector3(this.transform.position.x - 2, this.transform.position.y + 1, this.transform.position.z), gun1.transform.rotation);
 
             if (timer <= 0)
             {

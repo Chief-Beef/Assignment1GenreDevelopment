@@ -10,6 +10,7 @@ TagManager:
   - goldKey
   - ironKey
   - cylinder
+  - bullet
   layers:
   - Default
   - TransparentFX

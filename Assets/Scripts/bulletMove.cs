@@ -12,9 +12,14 @@ public class bulletMove : MonoBehaviour
     public bool turning;
     public bool finalTurn;
 
+  
 
     private void Start()
     {
+
+        GameObject bullet = GameObject.Find("bullet");
+        Shooty2 shooter = bullet.GetComponent<Shooty2>();
+        
         /*if (Input.GetKey(right))
         {
             turning = true;
@@ -28,19 +33,8 @@ public class bulletMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
        
-
-
-        if(turning == true)
-        {
-            rbody.velocity = new Vector3(15, 0, 0);
-        }
-        
-        if(turning == false)
-        {
-            rbody.velocity = new Vector3(-15, 0, 0);
-        }
-
         timer -= Time.deltaTime;
         if(timer <= 0)
         {

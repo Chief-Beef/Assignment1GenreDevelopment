@@ -73,13 +73,13 @@ public class JumpyBoi : MonoBehaviour
         if (Input.GetKey(right))
         {
             xMovement += speed * Time.deltaTime;
-            turning = true;
+            //turning = true;
         }
 
         if(Input.GetKey(left))
         {
             xMovement -= speed * Time.deltaTime;
-            turning = false;
+            //turning = false;
         }
 
 
@@ -108,7 +108,25 @@ public class JumpyBoi : MonoBehaviour
             rb.AddForce(Vector3.down * extraGravity);
         }
 
-        if(turning == true)
+        //shoot angle
+       
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x);
+        if(Input.GetMouseButtonDown(0))
+            Debug.Log("dir.x: " + dir.x + "      dir.y" + dir.y + "      angle:" + angle * Mathf.Rad2Deg + "     sin(theta): " + Mathf.Sin(angle) + "    cos(theta): " + Mathf.Cos(angle));
+
+        if (Mathf.Abs(angle * Mathf.Rad2Deg) >= 90)
+        {
+            turning = false;
+        }
+        else
+        {
+            turning = true;
+        }
+        
+
+
+        if (turning == true)
         {
             lookDirection = 0;
         }
@@ -143,6 +161,7 @@ public class JumpyBoi : MonoBehaviour
         {
             speed /= speedMultiplier;
         }
+    
     }
 
     public void OnCollisionEnter(Collision col)
