@@ -46,19 +46,20 @@ public class Shooty2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "platform" || col.gameObject.tag == "wall")
+        if (col.gameObject.tag == "platform" || col.gameObject.tag == "wall" || col.gameObject.tag == "enemy")
         {
 
-            if (xSpeed > 0)
+            /*if (xSpeed > 0)
                 this.gameObject.transform.position = new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z);
             else
                 this.gameObject.transform.position = new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z);
-
+            
 
             xSpeed = -xSpeed;
             rbody.velocity = new Vector3(bulletVelocity * xSpeed, bulletVelocity * ySpeed, 0);
-        
-            //timer = 0;
+            */
+
+            timer = 0;
         }
     }
 }
